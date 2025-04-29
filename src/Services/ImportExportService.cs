@@ -120,8 +120,14 @@ namespace AzureNamingTool.Services
                 configdata.AutoIncrementResourceInstance = config.AutoIncrementResourceInstance;
                 configdata.InstructionsEnabled = config.InstructionsEnabled;
                 configdata.GeneratedNamesLogEnabled = config.GeneratedNamesLogEnabled;
+                configdata.ConfigurationEnabled = config.ConfigurationEnabled;
+                configdata.ReferenceEnabled = config.ReferenceEnabled;
                 configdata.LatestNewsEnabled = config.LatestNewsEnabled;
                 configdata.RetainGenerateSelections = config.RetainGenerateSelections;
+                configdata.CustomHomeContent = config.CustomHomeContent;
+                configdata.CustomLogoPath = config.CustomLogoPath;
+                configdata.CustomToolName = config.CustomToolName;
+                configdata.ShowAdminDetailsToAllUsers = config.ShowAdminDetailsToAllUsers;
 
                 // Get the security settings
                 if (includeadmin)
@@ -130,6 +136,7 @@ namespace AzureNamingTool.Services
                     configdata.AdminPassword = config.AdminPassword;
                     configdata.APIKey = config.APIKey;
                     configdata.ReadOnlyAPIKey = config.ReadOnlyAPIKey;
+                    configdata.NameGenerationAPIKey = config.NameGenerationAPIKey;
                     //IdentityHeaderName
                     configdata.IdentityHeaderName = config.IdentityHeaderName;
                     //AdminUsers
@@ -205,6 +212,10 @@ namespace AzureNamingTool.Services
                 {
                     config.ReadOnlyAPIKey = configdata.ReadOnlyAPIKey;
                 }
+                if (GeneralHelper.IsNotNull(configdata.NameGenerationAPIKey))
+                {
+                    config.NameGenerationAPIKey = configdata.NameGenerationAPIKey;
+                }
                 if (GeneralHelper.IsNotNull(configdata.IdentityHeaderName))
                 {
                     config.IdentityHeaderName = configdata.IdentityHeaderName;
@@ -225,6 +236,14 @@ namespace AzureNamingTool.Services
                 {
                     config.GeneratedNamesLogEnabled = configdata.GeneratedNamesLogEnabled;
                 }
+                if (GeneralHelper.IsNotNull(configdata.ConfigurationEnabled))
+                {
+                    config.ConfigurationEnabled = configdata.ConfigurationEnabled;
+                }
+                if (GeneralHelper.IsNotNull(configdata.ReferenceEnabled))
+                {
+                    config.ReferenceEnabled = configdata.ReferenceEnabled;
+                }
                 if (GeneralHelper.IsNotNull(configdata.LatestNewsEnabled))
                 {
                     config.LatestNewsEnabled = configdata.LatestNewsEnabled;
@@ -232,6 +251,22 @@ namespace AzureNamingTool.Services
                 if (GeneralHelper.IsNotNull(configdata.RetainGenerateSelections))
                 {
                     config.RetainGenerateSelections = configdata.RetainGenerateSelections;
+                }
+                if (GeneralHelper.IsNotNull(configdata.CustomHomeContent))
+                {
+                    config.CustomHomeContent = configdata.CustomHomeContent;
+                }
+                if (GeneralHelper.IsNotNull(configdata.CustomLogoPath))
+                {
+                    config.CustomLogoPath = configdata.CustomLogoPath;
+                }
+                if (GeneralHelper.IsNotNull(configdata.CustomToolName))
+                {
+                    config.CustomToolName = configdata.CustomToolName;
+                }
+                if (GeneralHelper.IsNotNull(configdata.ShowAdminDetailsToAllUsers))
+                {
+                    config.ShowAdminDetailsToAllUsers = configdata.ShowAdminDetailsToAllUsers;
                 }
                 var jsonWriteOptions = new JsonSerializerOptions()
                 {
